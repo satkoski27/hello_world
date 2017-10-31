@@ -1,3 +1,3 @@
-# hello_world
+# MVC sandbox
 
-hello_world tut
+test applications
