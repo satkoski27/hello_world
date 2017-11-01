@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using LanguageFeatures.Models;
@@ -105,12 +106,76 @@ namespace LanguageFeatures.Controllers
             //get the total value of the products in the cart
             decimal total = 0;
 
-            foreach (Product prod in products.FilterByCategory("Soccer"))
+            foreach (Product prod in products.Filter(prod => prod.Category == "Soccer" || prod.Price > 20))
             {
                 total += prod.Price;
             }
 
             return View("Results", (object)String.Format("Cart Total: {0}", total));
+        }
+
+        public ViewResult CreateAnnonArray()
+        {
+            var oddsAndEnds = new[] {
+                new { Name = "MVC", Category = "Pattern"},
+                new { Name = "Hat", Category = "Clothing"},
+                new { Name = "Apple", Category = "Fruit"}
+            };
+
+            StringBuilder result = new StringBuilder();
+            foreach (var item in oddsAndEnds)
+            {
+                result.Append(item.Name).Append(" ");
+            }
+            return View("Results", (object)result.ToString());
+        }
+
+        public ViewResult FindProducts()
+        {
+            Product[] products = {
+                new Product {Name = "Kayak", Category = "Watersports", Price=274M},  
+                new Product {Name = "Lifejacket", Category = "Watersports", Price=48.95M},
+                new Product {Name = "Soccer Ball", Category = "Soccer", Price=19.5M},
+                new Product {Name = "Corner Flag", Category = "Soccer", Price=34.95M}
+            };
+
+            //// define the array to hold the results
+            //Product[] foundProducts = new Product[3];
+            ////sort the contents of the array
+            //Array.Sort(products, (item1, item2) =>
+            //{
+            //    return Comparer<decimal>.Default.Compare(item1.Price, item2.Price);
+            //});
+            ////get the first three items in the array as the results
+            //Array.Copy(products, foundProducts, 3);
+
+            //var foundProducts = from match in products
+            //                    orderby match.Price descending
+            //                    select new
+            //                    {
+            //                        match.Name,
+            //                        match.Price
+            //                    };
+
+            var foundProducts = products.OrderByDescending(e => e.Price)
+                .Take(3)
+                .Select(e => new
+                {
+                    e.Name,
+                    e.Price
+                });
+
+            //create the result
+            //int count = 0;
+            StringBuilder result = new StringBuilder();
+            foreach (var p in foundProducts)
+            {
+                result.AppendFormat("Price: {0} ", p.Price);
+                //if (++count == 3)
+                //    break;
+            }
+
+            return View("Results", (object)result.ToString());
         }
     }
 }
