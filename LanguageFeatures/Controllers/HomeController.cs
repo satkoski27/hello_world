@@ -59,5 +59,58 @@ namespace LanguageFeatures.Controllers
 
             return View("Results", (object)stringArray[1]);
         }
+
+        public ViewResult UseExtension()
+        {
+            IEnumerable<Product> products = new ShoppingCart
+            {
+                Products = new List<Product>
+                {
+                    new Product {Name = "Kayak", Price=275M},  
+                    new Product {Name = "Lifejacket", Price=48.95M},
+                    new Product {Name = "Soccer Ball", Price=19.5M},
+                    new Product {Name = "Corner Flag", Price=34.95M}
+                }
+            };
+
+            // create and populate ShoppingCart
+            Product[] productArray = {
+                    new Product {Name = "Kayak", Price=274M},  
+                    new Product {Name = "Lifejacket", Price=48.95M},
+                    new Product {Name = "Soccer Ball", Price=19.5M},
+                    new Product {Name = "Corner Flag", Price=34.95M}
+                };
+            
+
+            //get the total value of the products in the cart
+            decimal cartTotal = products.TotalPrices();
+            decimal arrayTotal = productArray.TotalPrices();
+
+            return View("Results", (object)String.Format("Cart Total: {0}, Array Total: {1}", cartTotal, arrayTotal));
+        }
+
+        public ViewResult FilterByCategory()
+        {
+            IEnumerable<Product> products = new ShoppingCart
+            {
+                Products = new List<Product>
+                {
+                    new Product {Name = "Kayak", Category = "Watersports", Price=275M},  
+                    new Product {Name = "Lifejacket", Category = "Watersports", Price=48.95M},
+                    new Product {Name = "Soccer Ball", Category = "Soccer", Price=19.5M},
+                    new Product {Name = "Corner Flag", Category = "Soccer", Price=34.95M}
+                }
+            };
+
+            //get the total value of the products in the cart
+            decimal total = 0;
+
+            foreach (Product prod in products.FilterByCategory("Soccer"))
+            {
+                total += prod.Price;
+            }
+
+            return View("Results", (object)String.Format("Cart Total: {0}", total));
+        }
     }
 }
