@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace MvcApplication1
+namespace Razor2
 {
     public class FilterConfig
     {

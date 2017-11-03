@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanguageFeatures", "LanguageFeatures\LanguageFeatures.csproj", "{B9FFC4C4-E7EB-4D16-B13A-6ED4FA79EDA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Razor", "Razor\Razor.csproj", "{434B3791-7173-461D-ACAD-F3A828938837}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Razor2", "MvcApplication1\Razor2.csproj", "{7494A61E-5EBF-4EE4-BE06-8B0B21CA1372}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,10 @@ Global
 		{B9FFC4C4-E7EB-4D16-B13A-6ED4FA79EDA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9FFC4C4-E7EB-4D16-B13A-6ED4FA79EDA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9FFC4C4-E7EB-4D16-B13A-6ED4FA79EDA9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{434B3791-7173-461D-ACAD-F3A828938837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{434B3791-7173-461D-ACAD-F3A828938837}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{434B3791-7173-461D-ACAD-F3A828938837}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{434B3791-7173-461D-ACAD-F3A828938837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7494A61E-5EBF-4EE4-BE06-8B0B21CA1372}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7494A61E-5EBF-4EE4-BE06-8B0B21CA1372}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7494A61E-5EBF-4EE4-BE06-8B0B21CA1372}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7494A61E-5EBF-4EE4-BE06-8B0B21CA1372}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
