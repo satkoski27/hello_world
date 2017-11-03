@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using Razor.Models;
+using Razor2.Models;
 
-namespace Razor.Controllers
+namespace Razor2.Controllers
 {
     public class HomeController : Controller
     {
